@@ -1,0 +1,36 @@
+name: Crypto intraday RSI 40 monitor
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: crypto-rsi-intraday
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Check active signals for provisional RSI above 40
+        env:
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+        run: python scripts/intraday_monitor.py
+      - name: Commit intraday alert state
+        run: |
+          git config user.name "Crypto RSI Bot"
+          git config user.email "actions@github.com"
+          git add data/intraday_state.json
+          git diff --cached --quiet || git commit -m "Update crypto intraday RSI alert state"
+          git pull --rebase
+          git push
