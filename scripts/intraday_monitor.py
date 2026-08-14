@@ -44,7 +44,7 @@ def main():
     for sym, sig in active.items():
         ticker = sig["ticker"]
         try:
-            daily = yf.download(ticker, period="18mo", interval="1d", auto_adjust=False, progress=False)
+            daily = yf.download(ticker, period="2y", interval="1d", auto_adjust=False, progress=False)
             intraday = yf.download(ticker, period="1d", interval="5m", auto_adjust=False, progress=False)
             if daily.empty or intraday.empty:
                 continue
