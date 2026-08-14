@@ -1,0 +1,20 @@
+{
+  "generated_at": null,
+  "stats": {
+    "universe": 40,
+    "scanned": 0,
+    "entries_today": 0,
+    "exits_today": 0,
+    "active": 0,
+    "errors": 0,
+    "completed_trades": 0,
+    "rsi_exits": 0,
+    "time_exits": 0,
+    "rsi_exit_rate_pct": null
+  },
+  "entries_today": [],
+  "exits_today": [],
+  "completed_trades": [],
+  "active_signals": [],
+  "stocks": []
+}
