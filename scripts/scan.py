@@ -64,7 +64,7 @@ def main():
     for coin in CONFIG["coins"]:
         sym, name, ticker = coin["symbol"], coin["name"], coin["ticker"]
         try:
-            hist = yf.download(ticker, period="18mo", interval="1d", auto_adjust=False, progress=False)
+            hist = yf.download(ticker, period="2y", interval="1d", auto_adjust=False, progress=False)
             if hist.empty:
                 raise RuntimeError("no history")
             close = hist["Close"]
