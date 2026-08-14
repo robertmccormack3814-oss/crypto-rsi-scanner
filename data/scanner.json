@@ -1,12 +1,12 @@
 {
-  "generated_at": null,
+  "generated_at": "2026-08-14T08:33:54.176401+00:00",
   "stats": {
     "universe": 40,
     "scanned": 0,
     "entries_today": 0,
     "exits_today": 0,
     "active": 0,
-    "errors": 0,
+    "errors": 40,
     "completed_trades": 0,
     "rsi_exits": 0,
     "time_exits": 0,
